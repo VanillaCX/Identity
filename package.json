@@ -1,0 +1,19 @@
+{
+    "name": "packagetemplate",
+    "version": "1.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "nodemon ./tests/index.js",
+      "dev": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "",
+    "dependencies": {
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.2"
+    }
+  }
+  

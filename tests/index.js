@@ -1,0 +1,1 @@
+const {DefaultModule} = require("../index.js");
