@@ -1,3 +1,6 @@
-const {DefaultModule} = require("./modules/default");
+const {Squid} = require("./modules/Squid");
+const {Authenticator} = require("./modules/Authenticator");
+const {User} = require("./modules/User");
+const {OTPAuth} = require("./modules/OneTimePassword")
 
-module.exports = {DefaultModule}
+module.exports = {Authenticator, OTPAuth}

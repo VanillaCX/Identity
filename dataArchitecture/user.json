@@ -1,0 +1,47 @@
+{
+    "id": "USER-654646545645645",
+    "label": "Lee",
+    "security": {
+        "type": "admininstrator",
+        "groups": ["admin", "editor"]
+    },
+    "personal": [
+        {
+            "label": "givenname",
+            "value": "Lee",
+            "public": true
+        },{
+            "label": "familyname",
+            "value": "Bowyer",
+            "public": false
+        },{
+            "label": "dob",
+            "value": [31, 1, 1979],
+            "public": false
+        }
+    ],
+    "locale": {
+        "country": "GB",
+        "languages": ["en", "fr"]
+    },
+    "phones": [
+        {
+            "id": "phoneid-321321321",
+            "label": "home",
+            "value": "0033658302010",
+            "default": true
+        },{
+            "id": "phoneid-321321321",
+            "label": "work",
+            "value": "0033658302010"
+        }
+    ],
+    "emails": [
+        {
+            "id": "emailid-321321321",
+            "label": "personal",
+            "value": "lee@bowyer.fr",
+            "default": true
+        }
+    ]
+}
