@@ -1,8 +1,5 @@
 const {Authenticator} = require("../index.js");
 
-
-
-
 const createAccount = async  (username, password, screenname) => {
     try {
         const myAuthenticator = await Authenticator.createAccount(username, password, screenname)

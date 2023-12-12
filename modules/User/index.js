@@ -16,6 +16,14 @@ class User {
 
     }
 
+    toJson(){
+        return {
+            userData: this.userData,
+            DEK: this.#senstive.DEK,
+            masterKey: this.#senstive.masterKey
+        };
+    }
+
     get hasRegisteredOTP(){
         return this.userData.settings.registeredOTP
     }
