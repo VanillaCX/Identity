@@ -23,6 +23,10 @@ class User {
         };
     }
 
+    get screenname(){
+        return this.userData.screenname;
+    }
+
     get hasRegisteredOTP(){
         return this.userData.settings.registeredOTP
     }
