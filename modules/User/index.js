@@ -1,5 +1,4 @@
-const {Schema, ShortText, Squid} = require("@VanillaCX/SchemaCX");
-const {DEKSQuery, SaltsQuery, UsersQuery, KEKSQuery} = require("../Queries")
+const {UsersQuery} = require("../Queries")
 const {OTPAuth} = require("../OneTimePassword")
 const DEK = require("../DEK")
 
