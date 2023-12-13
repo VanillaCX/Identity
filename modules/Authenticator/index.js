@@ -146,6 +146,12 @@ class Authenticator {
             uuid: derivedKeys.keks,
             keyEncryptionKeyName
         })
+
+        return new User({
+            data,
+            DEK: dataEncryptionKey,
+            masterKey
+        });
         
     }
 
