@@ -106,7 +106,7 @@ class Authenticator {
         const otp = OTPAuth.create(sanitised.username, service).toJson;
 
         // Base Profile
-        const userData = {
+        const data = {
             otp,
             settings: {
                 registeredOTP: false
@@ -114,9 +114,9 @@ class Authenticator {
             screenname
         }
 
-        const encryptedUserData = await DEK.encrypt({
+        const encryptedData = await DEK.encrypt({
             key: dataEncryptionKey,
-            plaintext: JSON.stringify(userData)
+            plaintext: JSON.stringify(data)
         })
 
         // Save Data to DataBase
@@ -138,7 +138,7 @@ class Authenticator {
             uuid: masterKey,
             username: await argon2.hash(sanitised.username, {salt: Buffer.from(salts[0])}),
             password: await argon2.hash(sanitised.password, {salt: Buffer.from(salts[1])}),
-            userData: encryptedUserData
+            data: encryptedData
         })
 
         // Save Key Encryption Key Name
@@ -209,11 +209,11 @@ class Authenticator {
         const decryptedDEK = await KEK.decrypt(kek_document.keyEncryptionKeyName, dek_document.dataEncryptionKey);
 
         // Decrypt user profile using the decrypted DEK 
-        const decryptedUserData = await DEK.decrypt(decryptedDEK, user_document.userData);
+        const decryptedData = await DEK.decrypt(decryptedDEK, user_document.data);
 
         // Successful login
         return new User({
-            userData: JSON.parse(decryptedUserData),
+            data: JSON.parse(decryptedData),
             DEK: decryptedDEK,
             masterKey
         });

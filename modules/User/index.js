@@ -4,36 +4,36 @@ const DEK = require("../DEK")
 
 class User {
     #senstive;
-    constructor({userData, DEK, masterKey} = {}){
-        this.userData = userData;
+    constructor({data, DEK, masterKey} = {}){
+        this.data = data;
         this.#senstive = {
             DEK,
             masterKey
         }
 
-        this.OTP = new OTPAuth(this.userData.otp);
+        this.OTP = new OTPAuth(this.data.otp);
 
     }
 
     toJson(){
         return {
-            userData: this.userData,
+            data: this.data,
             DEK: this.#senstive.DEK,
             masterKey: this.#senstive.masterKey
         };
     }
 
     get screenname(){
-        return this.userData.screenname;
+        return this.data.screenname;
     }
 
     get hasRegisteredOTP(){
-        return this.userData.settings.registeredOTP
+        return this.data.settings.registeredOTP
     }
 
     async encryptProfile(){
         const key = this.#senstive.DEK;
-        const plaintext = JSON.stringify(this.userData);
+        const plaintext = JSON.stringify(this.data);
 
         console.log("ENCRYPTING...", plaintext);
 
@@ -44,7 +44,7 @@ class User {
     }
 
     async registerOTP(otp){
-        if(this.userData.settings.registeredOTP){
+        if(this.data.settings.registeredOTP){
             throw new Error("ALREADY_VALIDATED")
         }
 
@@ -55,13 +55,13 @@ class User {
         }
 
         // Register as validated
-        this.userData.settings.registeredOTP = true;
+        this.data.settings.registeredOTP = true;
 
         // Encrypt profile
-        const encryptedUserData = await this.encryptProfile();
+        const encryptedData = await this.encryptProfile();
 
         // Save Encrypted User Profile
-        await UsersQuery.updateOne({uuid: this.#senstive.masterKey}, {userData: encryptedUserData})
+        await UsersQuery.updateOne({uuid: this.#senstive.masterKey}, {data: encryptedData})
 
         return true
     }
