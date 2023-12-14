@@ -1,13 +1,13 @@
 require('dotenv').config();
 
-const {Schema, ShortText, Squid, Flag, LongText, Password, SchemaError} = require("@VanillaCX/SchemaCX");
+const {Schema, ShortText, Squid, Flag, LongText, Password, SchemaError} = require("@VanillaCX/Schema");
 const {User} = require("../User");
 const argon2 = require("argon2");
 const qrcode  = require("qrcode");
 const DEK = require("../DEK")
 const KEK = require("../KEK")
 const {OTPAuth} = require("../OneTimePassword")
-const {Query} = require("@VanillaCX/QueryCX")
+const {Query} = require("@VanillaCX/Query")
 const {DEKSQuery, SaltsQuery, UsersQuery, KEKSQuery} = require("../Queries")
 
 const getUserSalts = async (clear_username) => {

@@ -1,4 +1,4 @@
-const {Query} = require("@VanillaCX/QueryCX")
+const {Query} = require("@VanillaCX/Query")
 
 
 const DEKSQuery = new Query({
