@@ -1,7 +1,16 @@
 # Identity
 
-Create .env with following vars:
+.env vars
 
-QUERYCX_CONNECTION_STRING = "mongodb://..."
-QUERYCX_AUTH_DATABASE = "..."
-KEY_VAULT_URL="..."
+KEY_VALUT_URL
+IDENTITY_DATABASE
+
+
+
+Needed by Dependencies:
+Query
+    COSMOS_CONNECTION_STRING
+
+    // Optional (required for test scripts only)
+    TEST_DATABASE
+    TEST_COLLECTION
